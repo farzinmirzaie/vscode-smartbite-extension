@@ -1,8 +1,40 @@
-.navbar {
-  padding: 0;
+h4 {
+  line-height: 1.5;
 }
 
-.navbar > li {
-  display: inline-block;
-  margin-right: 1rem;
+.divider {
+  border: none;
+  border-top: 1px solid var(--vscode-settings-dropdownListBorder, #454545);
+  box-sizing: content-box;
+  height: 0;
+  margin: 4 0;
+  width: 100%;
+}
+
+.badge {
+  align-items: center;
+  background-color: var(--vscode-badge-background, #4d4d4d);
+  border-radius: 11px;
+  box-sizing: border-box;
+  color: var(--vscode-badge-foreground, #ffffff);
+  display: flex;
+  height: 16px;
+  justify-content: center;
+  min-width: 18px;
+  min-height: 18px;
+  padding: 3px 6px;
+  flex-direction: row;
+  width: max-content;
+}
+
+.error {
+  color: var(--vscode-editorError-foreground, #f14c4c);
+}
+
+.warning {
+  color: var(--vscode-editorWarning-foreground, #cca700);
+}
+
+.info {
+  color: var(--vscode-editorInfo-foreground, #3794ff);
 }

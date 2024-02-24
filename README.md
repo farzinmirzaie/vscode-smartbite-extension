@@ -1,26 +1,50 @@
-# VSCode Webview React Boilerplate
+# VSCode SmartBite Extension
 
-An awesome boilerplate for developing VSCode Extension Webview in `React`, `React Router` and `TypeScript`.
+VSCode extension for [SmartBite](https://canteen.trysmartbite.com/).
 
-![screenshot](screenshot.gif)
+![screenshot](images/screenshot.png)
 
-Project was inspired by:
-- [Reactception : extending a VS Code extension with Webviews and React](https://medium.com/younited-tech-blog/reactception-extending-vs-code-extension-with-webviews-and-react-12be2a5898fd)
-- [vscode-webview-react](https://github.com/rebornix/vscode-webview-react)
-- [VSCode Webview API](https://code.visualstudio.com/api/extension-guides/webview)
+## Installation
+
+To install the extension, download the `.vsix` file from the releases page and run the following command.
+
+```bash
+code --install-extension extension.vsix
+```
+
+## Usage
+
+To use the extension open your VSCode settings and search for `smartbite` and set the `email` and `password`.
+
+```json
+{
+  "smartbite.email": "your-email",
+  "smartbite.password": "your-password"
+}
+```
 
 ## Development
 
 Install dependencies first.
 
 ```bash
-$ npm install
+npm install
 ```
 
-After the install process you can press `F5` to "Start Debugging" (or: select in menu **"Debug" -> "Run Extension"**). A new Extension Development Host window will open in which you need to open command palette (`Ctrl/Cmd + Shift + P`) and select **"Webview React: Open Webview"** to open webview.
+Then, run the following command to run the extension in development mode in the browser.
 
-Functionalities covered:
-- Router
-- Communication between Webview and Extension
-- Integrated configuration
-- Mock API Request
+```bash
+npm run browser
+```
+
+To test the extension in VSCode, open the project in VSCode and press `F5` to start debugging.
+
+## Release
+
+To release the extension, run the following command.
+
+```bash
+vsce package
+```
+
+This will create a `.vsix` file which can be uploaded to the marketplace.

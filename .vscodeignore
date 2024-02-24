@@ -1,13 +1,14 @@
 .vscode/**
 .vscode-test/**
 out/test/**
+.idea/**
 src/**
 test/**
+public/**
 .gitignore
-vsc-extension-quickstart.md
 **/tsconfig.json
 **/.eslintrc.json
 **/*.map
 **/*.ts
 .prettierrc
-screenshot.gif
+image/screenshot.png

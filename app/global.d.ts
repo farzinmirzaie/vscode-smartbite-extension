@@ -1,11 +1,2 @@
-type Message = import('../src/view/messages/messageTypes').Message;
-
-type VSCode = {
-  postMessage<T extends Message = Message>(message: T): void;
-  getState(): any;
-  setState(state: any): void;
-};
-
-declare const vscode: VSCode;
-
-declare const apiUserGender: string;
+// Expose type-safe settings object injected by VSCode into the global scope.
+declare const settings: ReturnType<typeof import('../src/utils').getSettings>;

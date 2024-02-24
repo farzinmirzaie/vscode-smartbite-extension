@@ -1,4 +1,8 @@
+const webpack = require('webpack');
+const dotenv = require('dotenv');
 const path = require('path');
+
+dotenv.config();
 
 module.exports = {
   entry: path.join(__dirname, 'app', 'index.tsx'),
@@ -22,5 +26,23 @@ module.exports = {
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'out', 'app'),
+  },
+  devServer: {
+    static: {
+      directory: path.join(__dirname, 'public'),
+    },
+    compress: true,
+    port: 9009,
+  },
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env': JSON.stringify(process.env),
+    }),
+  ],
+  resolve: {
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
+    alias: {
+      '@features': path.resolve(__dirname, 'app/features'),
+    },
   },
 };

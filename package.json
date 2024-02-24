@@ -1,51 +1,56 @@
 {
-  "name": "vscode-webview-react-boilerplate",
-  "displayName": "VSCode webview react boilerplate",
-  "description": "Boilerplate for developing webview using react in VSCode extension",
-  "version": "0.0.1",
+  "name": "vscode-smartbite-extension",
+  "displayName": "VSCode SmartBite Extension",
+  "description": "VSCode extension for SmartBite",
+  "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/farzinmirzaie/vscode-smartbite-extension/"
+  },
   "engines": {
-    "vscode": "^1.52.0"
+    "vscode": "^1.87.0"
   },
   "categories": [
     "Other"
   ],
   "keywords": [
     "vscode",
-    "vscode-extension",
-    "vscode-extension-boilerplate",
-    "boilerplate"
+    "vscode-extension"
   ],
   "activationEvents": [
     "onStartupFinished"
   ],
   "main": "./out/src/extension.js",
   "contributes": {
-    "commands": [
-      {
-        "command": "webview.open",
-        "title": "Open Webview",
-        "category": "Webview React"
-      },
-      {
-        "command": "extension.sendMessage",
-        "title": "Send Message to Webview",
-        "category": "Webview React"
-      }
-    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "activityBarView",
+          "title": "SmartBite",
+          "icon": "images/restaurant.png"
+        }
+      ]
+    },
+    "views": {
+      "activityBarView": [
+        {
+          "type": "webview",
+          "id": "webview",
+          "name": "SmartBite",
+          "icon": "images/restaurant.png"
+        }
+      ]
+    },
     "configuration": {
-      "title": "Webview React",
+      "title": "smartbite",
       "properties": {
-        "webviewReact.userApiGender": {
+        "smartbite.email": {
           "type": "string",
-          "default": "male",
-          "enum": [
-            "male",
-            "female"
-          ],
-          "enumDescriptions": [
-            "Fetching user information with gender of male",
-            "Fetching user information with gender of female"
-          ]
+          "description": "The email address associated with your SmartBite account"
+        },
+        "smartbite.password": {
+          "type": "string",
+          "description": "The password associated with your SmartBite account"
         }
       }
     }
@@ -60,35 +65,32 @@
     "watch:view": "webpack --watch --mode development",
     "pretest": "npm run compile && npm run lint",
     "lint": "eslint src --ext ts",
-    "test": "node ./out/test/runTest.js"
+    "browser": "webpack serve --mode development"
   },
   "devDependencies": {
-    "@types/glob": "^7.1.3",
-    "@types/mocha": "^8.0.4",
-    "@types/node": "^12.11.7",
-    "@types/react": "^17.0.1",
-    "@types/react-dom": "^17.0.0",
-    "@types/react-router-dom": "^5.1.7",
-    "@types/vscode": "^1.52.0",
-    "@typescript-eslint/eslint-plugin": "^4.9.0",
-    "@typescript-eslint/parser": "^4.9.0",
-    "css-loader": "^5.0.1",
-    "eslint": "^7.15.0",
-    "eslint-plugin-react-hooks": "^4.2.0",
-    "glob": "^7.1.6",
-    "mocha": "^8.1.3",
+    "@tanstack/eslint-plugin-query": "^5.20.1",
+    "@types/node": "^20.11.24",
+    "@types/react": "^18.2.61",
+    "@types/react-dom": "^18.2.19",
+    "@types/vscode": "^1.87.0",
+    "@typescript-eslint/eslint-plugin": "^7.1.0",
+    "@typescript-eslint/parser": "^7.1.0",
+    "css-loader": "^6.10.0",
+    "dotenv": "^16.4.5",
+    "eslint": "^8.57.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
     "npm-run-all": "^4.1.5",
-    "prettier": "^2.2.1",
-    "style-loader": "^2.0.0",
-    "ts-loader": "^8.0.15",
-    "typescript": "^4.1.2",
-    "vscode-test": "^1.4.1",
-    "webpack": "^5.21.1",
-    "webpack-cli": "^4.5.0"
+    "prettier": "^3.2.5",
+    "style-loader": "^3.3.4",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.3.3",
+    "webpack": "^5.90.3",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.0.2"
   },
   "dependencies": {
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-router-dom": "^5.2.0"
+    "@tanstack/react-query": "^5.25.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }
