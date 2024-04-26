@@ -6,16 +6,22 @@ export interface Response<T> {
 export interface OrdersResponse {
   orders: Array<{
     _id: string;
+    fee: number;
     status: string;
-    buildingName: string;
-    totalAmount: number;
+    taxApplied: boolean;
+    sstApplied: boolean;
     dailyMenuForDate: string;
+    buildingName: string;
     paymentStatus: string;
+    totalAmount: number;
+    totalCorporateAllowance: number;
+    sstRate: number;
+    deliveryHistory: Array<any>;
     orderNumber: string;
     orderItemsSuppliers: Array<{
       _id: string;
       status: string;
-      category: Array<string>;
+      category: Array<any>;
       allergens: Array<any>;
       type: string;
       currency: string;
@@ -29,21 +35,18 @@ export interface OrdersResponse {
       ready: boolean;
       slider: {};
       guid: string;
-      menuSectionId: string;
       name: string;
-      userName: string;
       userId: string;
+      userName: string;
       orderId: string;
       supplierId: string;
       supplierName: string;
-      dailyMenuId: any;
+      chainId?: string;
+      chainName?: string;
       dailyMenuForDate: string;
+      dailyMenuForDateEnd: string;
       foodItemId: string;
-      menuItemId: any;
       nmv: number;
-      nmv_gold: number;
-      buyOffer: number;
-      getFreeOffer: number;
       gmv: number;
       restaurantPrice: number;
       marginFromRestaurant: number;
@@ -53,11 +56,9 @@ export interface OrdersResponse {
         isMarkup: boolean;
         gold: boolean;
         individualQuantity: boolean;
-        included: any;
         _id: string;
-        supplierId?: string;
+        supplierId: string;
         name: string;
-        includedQty: number;
         category: string;
         nmv: number;
         gmv: number;
@@ -69,17 +70,16 @@ export interface OrdersResponse {
       }>;
       total: number;
       recommId: any;
+      specialInstructions: string;
       description: string;
+      rewardPointsAmount: number;
       supplierLoyaltyPercentage: number;
-      dailyMenuForDateEnd: string;
-      __v: number;
       createdAt: string;
       updatedAt: string;
-      rewardPointsAmount: number;
-      orderIndex?: number;
-      specialInstructions?: string;
-      mealType?: string;
+      __v: number;
     }>;
+    deliveryStatus: string;
+    parentId?: string;
   }>;
   ordersCount: number;
 }

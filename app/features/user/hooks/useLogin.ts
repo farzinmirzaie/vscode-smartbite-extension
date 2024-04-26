@@ -23,5 +23,6 @@ export const useLogin = () => {
         }),
       }),
     select: data => data.data,
+    staleTime: 1000 * 60 * 5,
   });
 };

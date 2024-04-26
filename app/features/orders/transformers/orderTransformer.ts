@@ -53,5 +53,6 @@ export const orderTransformer = (order: OrdersResponse['orders'][number]) => {
     isToday,
     isTomorrow,
     suppliers,
+    deliveryStatus: order.deliveryStatus,
   };
 };

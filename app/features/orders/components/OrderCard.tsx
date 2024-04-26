@@ -10,7 +10,9 @@ export const OrderCard: React.FC<TProps> = ({ order }) => {
     return (
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <h1>{order.displayDay}</h1>
-        {!order.isToday && <h4 style={{ opacity: 0.3 }}>{order.displayDayDate}</h4>}
+        <h4 style={{ opacity: 0.3, textTransform: 'capitalize' }}>
+          {order.isToday ? order.deliveryStatus : order.displayDayDate}
+        </h4>
       </div>
     );
   };
