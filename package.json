@@ -41,6 +41,21 @@
         }
       ]
     },
+    "commands": [
+      {
+        "command": "smartbite.activityBarView.newOrder",
+        "title": "Place an order",
+        "icon": "$(add)"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "smartbite.activityBarView.newOrder",
+          "group": "navigation"
+        }
+      ]
+    },
     "configuration": {
       "title": "smartbite",
       "properties": {
