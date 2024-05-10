@@ -1,6 +1,6 @@
 # VSCode SmartBite Extension
 
-VSCode extension for [SmartBite](https://canteen.trysmartbite.com/).
+VSCode extension for [SmartBite](https://trysmartbite.com/).
 
 ![screenshot](images/screenshot.png)
 

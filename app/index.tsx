@@ -1,16 +1,17 @@
+import { createSyncStoragePersister } from '@tanstack/query-sync-storage-persister';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { persistQueryClient } from '@tanstack/react-query-persist-client';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { AuthWrapper, MissingConfigState, OrdersList, getConfigs } from './features';
 import './index.css';
 
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      refetchOnWindowFocus: false,
-      retry: false,
-    },
-  },
+const queryClient = new QueryClient();
+
+persistQueryClient({
+  queryClient,
+  persister: createSyncStoragePersister({ storage: window.localStorage }),
+  dehydrateOptions: { shouldDehydrateQuery: query => Boolean(query.meta?.persist) },
 });
 
 export const App: React.FC<unknown> = () => {

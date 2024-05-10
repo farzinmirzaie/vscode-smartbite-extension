@@ -89,7 +89,9 @@
     "webpack-dev-server": "^5.0.2"
   },
   "dependencies": {
+    "@tanstack/query-sync-storage-persister": "^5.35.1",
     "@tanstack/react-query": "^5.25.0",
+    "@tanstack/react-query-persist-client": "^5.35.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   }

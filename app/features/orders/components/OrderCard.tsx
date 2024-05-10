@@ -11,7 +11,12 @@ export const OrderCard: React.FC<TProps> = ({ order }) => {
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <h1>{order.displayDay}</h1>
         <h4 style={{ opacity: 0.3, textTransform: 'capitalize' }}>
-          {order.isToday ? order.deliveryStatus : order.displayDayDate}
+          {order.isToday && (
+            <a href={`https://canteen.trysmartbite.com/order-details/${order.id}`}>
+              {order.deliveryStatus}
+            </a>
+          )}
+          {!order.isToday && order.displayDayDate}
         </h4>
       </div>
     );

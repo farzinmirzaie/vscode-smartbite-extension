@@ -10,7 +10,7 @@ import { useQuery } from '@tanstack/react-query';
  */
 export const useLogin = () => {
   return useQuery({
-    queryKey: ['login'],
+    queryKey: ['/login'],
     queryFn: () =>
       call<LoginResponse>('/canteen-login', {
         method: 'POST',
@@ -24,5 +24,6 @@ export const useLogin = () => {
       }),
     select: data => data.data,
     staleTime: 1000 * 60 * 5,
+    meta: { persist: true },
   });
 };
