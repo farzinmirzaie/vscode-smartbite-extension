@@ -11,7 +11,7 @@ import type { Response } from '../types';
  */
 export const call = async <T>(url: string, init?: RequestInit) => {
   // Make the request to the API.
-  const response = await fetch(`https://admin-api.trysmartbite.com/api${url}`, {
+  const response = await fetch(`https://production-api.trysmartbite.com/api${url}`, {
     ...init,
     headers: {
       'Content-Type': 'application/json',
