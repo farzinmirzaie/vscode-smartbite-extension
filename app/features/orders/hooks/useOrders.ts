@@ -30,8 +30,11 @@ export const useOrders = () => {
           const today = new Date();
           today.setHours(0, 0, 0, 0);
 
+          // Only show orders with the following statuses. Different from deliveryStatus.
+          const statusesToShow = ['pending', 'confirmed'];
+
           // Only include orders for today and the future.
-          return order.date >= today;
+          return order.date >= today && statusesToShow.includes(order.status);
         })
         // Sort the orders by date.
         .sort((a, b) => a.date.getTime() - b.date.getTime()),

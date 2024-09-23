@@ -46,6 +46,7 @@ export const orderTransformer = (order: OrdersResponse['orders'][number]) => {
 
   return {
     id: order._id,
+    status: order.status,
     date,
     displayDay,
     displayDayName,
